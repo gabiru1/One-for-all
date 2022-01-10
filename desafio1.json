@@ -12,5 +12,5 @@
   "coluna_album": "album_name",
   "tabela_que_contem_album": "albums",
   "coluna_cancoes": "track_name",
-  "tabela_que_contem_cancoes": "track_id"
+  "tabela_que_contem_cancoes": "track"
 }
