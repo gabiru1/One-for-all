@@ -1,4 +1,5 @@
-SELECT user.user_name AS usuario, 
+SELECT 
+  user.user_name AS usuario, 
 CASE
 	WHEN MAX(YEAR(his.history_date)) = 2021 THEN 'Usuário ativo'
   ELSE 'Usuário inativo'
