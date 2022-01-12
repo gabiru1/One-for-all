@@ -1,17 +1,10 @@
-SELECT 
-	artists.artist_name AS 'artista',
-    albums.album_name AS 'album',
-    COUNT(followers.artist_id) AS 'seguidores'
+SELECT
+    MIN(plans.plan_value) AS 'faturamento_minimo',
+    MAX(plans.plan_value) AS 'faturamento_maximo',
+    FORMAT(AVG(plans.plan_value), 2) AS 'faturamento_medio',
+    SUM(plans.plan_value) AS 'faturamento_total'
 FROM
-	SpotifyClone.artists AS artists,
-	SpotifyClone.albums AS albums,
-    SpotifyClone.`following` AS followers
+	SpotifyClone.plans as plans,
+	SpotifyClone.users as users
 WHERE
-	artists.artist_id = albums.artist_id
-AND
-	albums.artist_id = followers.artist_id
-GROUP BY
-	artista,
-    album
-ORDER BY
-	seguidores DESC;
+	users.plan_id = plans.plan_id;

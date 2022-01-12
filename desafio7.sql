@@ -9,4 +9,9 @@ FROM
 WHERE
 	artists.artist_id = albums.artist_id
 AND
-	albums.artist_id = followers.artist_id;
+	albums.artist_id = followers.artist_id
+GROUP BY
+	artista,
+    album
+ORDER BY
+	seguidores DESC;
