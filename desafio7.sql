@@ -3,13 +3,11 @@ SELECT
     albums.album_name AS 'album',
     COUNT(followers.artist_id) AS 'seguidores'
 FROM
-	SpotifyClone.artists AS artists,
-	SpotifyClone.albums AS albums,
-    SpotifyClone.`following` AS followers
-WHERE
-	artists.artist_id = albums.artist_id
-AND
-	albums.artist_id = followers.artist_id
+	SpotifyClone.albums AS albums
+INNER JOIN SpotifyClone.artists AS artists
+  ON albums.artist_id = artists.artist_id
+INNER JOIN SpotifyClone.`following` AS followers
+  ON followers.artist_id = albums.artist_id
 GROUP BY
 	artista,
     album
